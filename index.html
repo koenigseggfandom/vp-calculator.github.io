@@ -8,23 +8,49 @@
 </head>
 <body>
     <div class="container">
-        <h1>Valorant Points Hesaplayıcı</h1>
+        <div class="header">
+            <img src="https://media.valorant-api.com/currencies/85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741/displayicon.png" alt="VP Icon" class="vp-icon">
+            <h1>Valorant Points Hesaplayıcı</h1>
+        </div>
         
+        <div class="currency-selector">
+            <label for="currency">Para Birimi:</label>
+            <select id="currency" onchange="changeCurrency()">
+                <option value="TRY">Türk Lirası (TRY)</option>
+                <option value="USD">Amerikan Doları ($)</option>
+                <option value="EUR">Euro (€)</option>
+            </select>
+        </div>
+
         <div class="input-group">
             <label for="vpAmount">VP Miktarı:</label>
-            <input type="number" id="vpAmount" placeholder="Örnek: 15">
+            <input type="number" id="vpAmount" placeholder="Örnek: 15" min="1">
             <button onclick="calculatePrice()">Hesapla</button>
         </div>
 
         <div id="result" class="result"></div>
 
         <div class="price-list">
-            <h3>Güncel Fiyat Listesi</h3>
+            <h3>💎 Standart VP Paketleri</h3>
             <div id="priceList"></div>
         </div>
 
-        <div class="last-update">
-            Son Güncelleme: <span id="lastUpdate"></span>
+        <div class="custom-packages">
+            <h3>🎯 Özel Hesaplamalar</h3>
+            <div id="customCalculations"></div>
+        </div>
+
+        <div class="info-section">
+            <div class="last-update">
+                🔄 Son Güncelleme: <span id="lastUpdate"></span>
+            </div>
+            <div class="api-status">
+                API Durumu: <span id="apiStatus">Bağlanıyor...</span>
+            </div>
+        </div>
+
+        <div class="note">
+            💡 Not: Fiyatlar yaklaşık değerlerdir. Resmi fiyatlar için oyun içi mağazayı kontrol edin.
         </div>
     </div>
 
